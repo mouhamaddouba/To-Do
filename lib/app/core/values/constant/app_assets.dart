@@ -9,8 +9,8 @@ abstract class AppAssets {
 
   ///region Image
   static const String emptyImage = '$_images/emptyImage';
+  static const String logo = '$_images/app_logo.png';
 
   ///region Svgs
-  static const String logo = '$_svgs/counter.svg';
   static const String logInToDo = '$_svgs/login_to_do.svg';
 }

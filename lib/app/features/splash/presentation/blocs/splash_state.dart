@@ -11,5 +11,7 @@ class SplashLoading extends SplashState {}
 class SplashLoaded extends SplashState {
   final String? token;
 
-  SplashLoaded({this.token});
+  SplashLoaded({
+    this.token,
+  });
 }
