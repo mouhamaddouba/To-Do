@@ -14,27 +14,39 @@ class LoginUseCase extends UseCase<LoginData, Params> {
   @override
   Future<Either<Failure, LoginData>> call(Params params) {
     return _repository.login(
-      phoneNumber: params.phoneNumber,
-      password: params.password,
-      byEmail: params.byEmail,
+      token: params.token,
+      firstName: params.firstName,
+      lastName: params.lastName,
       email: params.email,
-      rememberMe: false,
+      id: params.id,
+      gender: params.gender,
+      image: params.image,
+      username: params.username,
+      refreshToken: params.refreshToken,
     );
   }
 }
 
 class Params {
-  final String phoneNumber;
-  final String password;
+  final int id;
+  final String username;
   final String email;
-  final bool byEmail;
-  final bool remeberMe;
+  final String firstName;
+  final String lastName;
+  final String gender;
+  final String image;
+  final String token;
+  final String refreshToken;
 
   Params({
-    required this.phoneNumber,
-    required this.password,
+    required this.id,
+    required this.firstName,
+    required this.lastName,
     required this.email,
-    required this.byEmail,
-    required this.remeberMe,
+    required this.image,
+    required this.username,
+    required this.gender,
+    required this.refreshToken,
+    required this.token,
   });
 }
