@@ -74,6 +74,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/svgs/
+    - assets/translations/
 
   # To add fonts to your application :
   fonts:

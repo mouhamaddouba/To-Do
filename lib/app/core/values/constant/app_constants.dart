@@ -4,7 +4,7 @@ abstract class AppConstants {
   /// Duration
   static const int duration01 = 01;
 
-  // API Constant
+  /// API Constant
   static const int receiveUrlTimeout = 60;
   static const int connectUrlTimeout = 60;
   static const int maxExceptionMessageLength = 100;
