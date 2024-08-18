@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do/app.dart';
 import 'package:to_do/app/core/translations/localization/app_translations.dart';
+import 'package:to_do/app/core/utils/app_prefs_utils.dart';
 
 Future<void> main() async {
   /// Inject widget app
@@ -23,6 +24,8 @@ Future<void> main() async {
     SystemUiMode.manual,
     overlays: [],
   );
+
+  await AppPrefs().init();
 
   /// Make system chrome in dark mode
   SystemChrome.setSystemUIOverlayStyle(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/app/core/themes/app_themes.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/routes/app_pages.dart';
+import 'package:to_do/app/routes/app_routes.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
 
       /// Routing
       onGenerateRoute: AppPages.generateRoutes,
+      initialRoute: AppRoutes.splash,
 
       /// Theme
       theme: AppTheme.getAppTheme(),

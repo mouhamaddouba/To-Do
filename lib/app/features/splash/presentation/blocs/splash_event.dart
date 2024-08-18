@@ -1,5 +1,9 @@
 part of 'splash_bloc.dart';
 
-sealed class SplashEvent extends Equatable {
+abstract class SplashEvent {
   const SplashEvent();
+}
+
+class FetchSplashScreenData extends SplashEvent {
+  FetchSplashScreenData();
 }
