@@ -38,6 +38,7 @@ abstract class AppColors {
   static const Color darkGrey = Color(0xff525252);
   static const Color hintText = Color(0xff9F9F9F);
   static const Color borderField = Color(0xffC9C9C9);
+  static const Color backgroundSplash = Color(0xffEDEDED);
   static const Color white01 = Colors.white;
   static const Color iconLight = onLight300;
 }

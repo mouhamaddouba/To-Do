@@ -36,7 +36,7 @@ Future<void> main() async {
     /// Translations
     EasyLocalization(
       path: assetPathLocalization,
-      supportedLocales: const [englishLocal, arabicLocal],
+      supportedLocales: const [englishLocal],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,

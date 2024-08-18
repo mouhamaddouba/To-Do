@@ -38,17 +38,11 @@ abstract class AppStrings {
   /// App Name
   static const String appName = 'appName';
 
-  /// App utils
-  static const String bluetoothPermission = 'Bluetooth Permission';
-  static const String accessConnection =
-      'This app needs Bluetooth access for connection  ';
-  static const String deny = 'Deny';
-  static const String locationPermission = 'Location Permission';
-  static const String locationAccessConnection =
-      'This app needs Location access for bluetooth connection  ';
-  static const String storagePermission = 'Storage Permission';
-  static const String storageAccess =
-      'This app needs Storage access for save files  ';
+  /// Region login
+  static const String loginWelcome = 'loginWelcome';
+  static const String login = 'login';
+  static const String userName = 'userName';
+  static const String password = 'password';
 
   /// Connect page
   static const String bluetoothConnection = 'bluetoothConnection';

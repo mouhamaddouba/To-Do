@@ -25,7 +25,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late AnimationController scaleController;
   late Animation<double> scaleAnimation;
 
-  double opacity = 0;
+  double opacity = AppDimensions.zero;
   bool value = true;
 
   @override
@@ -40,6 +40,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  /// Function  to Animate logo and move to new page
   void delaySplash() {
     scaleController = AnimationController(
       vsync: this,
