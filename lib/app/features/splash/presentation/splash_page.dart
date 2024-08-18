@@ -34,6 +34,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    scaleController.dispose();
+    super.dispose();
+  }
+
   void delaySplash() {
     scaleController = AnimationController(
       vsync: this,
@@ -61,17 +67,21 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         milliseconds: AppConstants.duration600,
       ),
       () {
-        opacity = AppConstants.opacity01;
-        value = false;
+        setState(() {
+          opacity = AppConstants.opacity01;
+          value = false;
+        });
       },
     );
 
     Timer(
-      const Duration(
-        milliseconds: AppConstants.duration1800,
-      ),
-      () => scaleController.forward(),
-    );
+        const Duration(
+          milliseconds: AppConstants.duration1800,
+        ), () {
+      setState(() {
+        scaleController.forward();
+      });
+    });
   }
 
   @override
