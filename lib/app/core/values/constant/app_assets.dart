@@ -12,4 +12,5 @@ abstract class AppAssets {
 
   ///region Svgs
   static const String logo = '$_svgs/counter.svg';
+  static const String logInToDo = '$_svgs/login_to_do.svg';
 }

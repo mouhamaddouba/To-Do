@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   /// Global widgets
   static const Color gray01 = Color(0xFFF5F5F4);
-  static const Color primary = Color(0xff5e81f4);
+  static const Color primary = Color(0xFF3F37C9);
   static const Color primary50 = Color(0xffafc0fa);
   static const Color primary100 = Color(0xff9eb3f8);
   static const Color primary200 = Color(0xff8ea7f7);
