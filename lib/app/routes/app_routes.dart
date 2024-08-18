@@ -1,6 +1,6 @@
 part of 'app_pages.dart';
 
-abstract class AppRoutes {
+class AppRoutes {
   /// splash
   static const String splash = '/splash';
 

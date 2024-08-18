@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 abstract class AppConstants {
   /// Duration
-  static const int duration01 = 01;
 
   /// API Constant
   static const int receiveUrlTimeout = 60;
@@ -29,6 +28,8 @@ abstract class AppConstants {
 
   /// Constant duration
   static const int duration00 = 0;
+  static const int duration01 = 01;
+
   static const int duration02 = 2;
   static const int duration15 = 15;
   static const int duration150 = 150;
@@ -37,6 +38,7 @@ abstract class AppConstants {
   static const int duration600 = 600;
   static const int duration800 = 800;
   static const int duration1200 = 1200;
+  static const int duration1800 = 1800;
   static const int duration2500 = 2500;
 
   /// Constant offsets
@@ -73,4 +75,5 @@ abstract class AppConstants {
   static const double tween0_9 = 0.9;
   static const double tween1_1 = 1.1;
   static const double tween12 = 12;
+  static const double tween30 = 30;
 }
