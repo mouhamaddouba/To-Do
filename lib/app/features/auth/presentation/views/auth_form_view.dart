@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
+import 'package:to_do/app/core/values/constant/app_dimensions.dart';
 import 'package:to_do/app/features/auth/presentation/views/auth_field_view.dart';
 import 'package:to_do/app/global_widgets/app_button_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
@@ -13,39 +14,47 @@ class AuthFormView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        /// Space
-        const SizedBox(
-          height: 10,
-        ),
+    final loginFormKey = GlobalKey<FormState>();
 
-        /// LogIn Text
-        AppTextWidget(
-          AppStrings.applySettings.tr(),
-          textColor: AppColors.black01,
-        ),
+    return Form(
+      key: loginFormKey,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          /// Space
+          const SizedBox(
+            height: AppDimensions.paddingOrMargin10,
+          ),
 
-        /// Space
-        const SizedBox(
-          height: 10,
-        ),
+          /// LogIn Text
+          AppTextWidget(
+            AppStrings.loginWelcome.tr(),
+            textColor: AppColors.black01,
+            fontWeight: FontWeight.w500,
+          ),
 
-        /// TextFiled
-        const AuthFieldView(),
+          /// Space
+          const SizedBox(
+            height: AppDimensions.paddingOrMargin32,
+          ),
 
-        /// Space
-        const SizedBox(
-          height: 10,
-        ),
+          /// TextFiled
+          const AuthFieldView(),
 
-        /// Button LogIn
-        AppButtonWidget(
-          text: AppStrings.applySettings.tr(),
-          onPressed: () {},
-          color: AppColors.primary,
-        ),
-      ],
+          /// Space
+          const SizedBox(
+            height: AppDimensions.paddingOrMargin16,
+          ),
+
+          /// Button LogIn
+          AppButtonWidget(
+            color: AppColors.primary,
+            text: AppStrings.login.tr(),
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }

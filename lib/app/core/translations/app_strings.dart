@@ -38,6 +38,12 @@ abstract class AppStrings {
   /// App Name
   static const String appName = 'appName';
 
+  /// Region login
+  static const String loginWelcome = 'loginWelcome';
+  static const String login = 'login';
+  static const String userName = 'userName';
+  static const String password = 'password';
+
   /// Connect page
   static const String bluetoothConnection = 'bluetoothConnection';
   static const String reSearch = 'reSearch';

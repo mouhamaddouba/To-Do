@@ -16,28 +16,32 @@ class AuthFieldView extends StatefulWidget {
 }
 
 class _AuthFieldViewState extends State<AuthFieldView> {
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool showPassword = true;
+
   @override
   Widget build(BuildContext context) {
-    bool showPassword = true;
     return Column(
       children: [
-        // SN
+        /// User Name
         AppTextFieldWidget(
+          textController: userNameController,
           verticalPadding: AppDimensions.paddingOrMargin14,
           backgroundColor: AppColors.background,
-          hintText: AppStrings.sn.tr(),
+          hintText: AppStrings.userName.tr(),
           textColor: AppColors.gray03,
           fontSize: AppDimensions.fontSize10,
         ),
 
-        // Space
+        /// Space
         const SizedBox(
           height: AppDimensions.paddingOrMargin16,
         ),
 
-        // Password
-
+        /// Password
         AppTextFieldWidget(
+          textController: passwordController,
           backgroundColor: Theme.of(context).brightness == Brightness.light
               ? AppColors.onPrimary
               : AppColors.darkOnPrimary,
@@ -45,7 +49,7 @@ class _AuthFieldViewState extends State<AuthFieldView> {
           textColor: Theme.of(context).brightness == Brightness.light
               ? AppColors.black01
               : AppColors.whiteBlue,
-          hintText: AppStrings.piecesInEachKit.tr(),
+          hintText: AppStrings.password.tr(),
           textInputAction: TextInputAction.done,
           horizontalPadding: AppDimensions.paddingOrMargin16,
           maxLines: AppConstants.maxLines,

@@ -1,4 +1,8 @@
 {
-  "appName": "To-Do List"
+  "appName": "To-Do List",
+  "loginWelcome": "Log In",
+  "login": "Login",
+  "userName": "User Name",
+  "password": "Password"
 
 }
