@@ -29,7 +29,6 @@ abstract class AppConstants {
   /// Constant duration
   static const int duration00 = 0;
   static const int duration01 = 01;
-
   static const int duration02 = 2;
   static const int duration15 = 15;
   static const int duration150 = 150;
@@ -39,6 +38,7 @@ abstract class AppConstants {
   static const int duration800 = 800;
   static const int duration1200 = 1200;
   static const int duration1800 = 1800;
+  static const int duration2100 = 2100;
   static const int duration2500 = 2500;
 
   /// Constant offsets
