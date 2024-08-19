@@ -3,7 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:to_do/app/core/error/exceptions.dart';
 import 'package:to_do/app/core/error/failures.dart';
 import 'package:to_do/app/features/tasks/data/datasources/tasks_remote_datasource.dart';
+import 'package:to_do/app/features/tasks/data/model/remote/request/mange_task_request_dto.dart';
 import 'package:to_do/app/features/tasks/data/model/remote/request/tasks_request_dto.dart';
+import 'package:to_do/app/features/tasks/domain/entities/single_tasks_data.dart';
 import 'package:to_do/app/features/tasks/domain/entities/tasks_data.dart';
 import 'package:to_do/app/features/tasks/domain/repositories/tasks_repository.dart';
 
@@ -26,6 +28,85 @@ class TasksRepositoryImpl implements TasksRepository {
           limit: limit,
         ),
       );
+
+      return Right(
+        result!,
+      );
+    } on ServerException catch (exception) {
+      return Left(
+        ServerFailure(
+          message: exception.message,
+        ),
+      );
+    } on LocalException catch (exception) {
+      return Left(
+        LocalFailure(
+          message: exception.message,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, SingleTaskData>> addTask({
+    required MangeTaskRequestDto todo,
+  }) async {
+    try {
+      final result = await _remoteDatasource.addTask(
+        newTask: todo,
+      );
+
+      return Right(
+        result!,
+      );
+    } on ServerException catch (exception) {
+      return Left(
+        ServerFailure(
+          message: exception.message,
+        ),
+      );
+    } on LocalException catch (exception) {
+      return Left(
+        LocalFailure(
+          message: exception.message,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> deleteTask({required int id}) async {
+    try {
+      final result = await _remoteDatasource.deleteTask(
+        id: id,
+      );
+
+      return Right(
+        result,
+      );
+    } on ServerException catch (exception) {
+      return Left(
+        ServerFailure(
+          message: exception.message,
+        ),
+      );
+    } on LocalException catch (exception) {
+      return Left(
+        LocalFailure(
+          message: exception.message,
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, SingleTaskData>> updateTask({
+    required bool completed,
+    required int id,
+  }) async {
+    try {
+      final result =
+          await _remoteDatasource.updateTask(completed: completed, id: id);
 
       return Right(
         result!,

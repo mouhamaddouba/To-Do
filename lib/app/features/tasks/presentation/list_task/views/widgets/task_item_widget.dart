@@ -5,12 +5,14 @@ import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/core/values/constant/app_assets.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
+import 'package:to_do/app/features/tasks/domain/entities/single_tasks_data.dart';
 import 'package:to_do/app/features/tasks/presentation/list_task/views/widgets/item_popup_menu_widget.dart';
 import 'package:to_do/app/global_widgets/app_icon_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
 
 class TaskItemWidget extends StatelessWidget {
-  const TaskItemWidget({super.key});
+  final SingleTaskData task;
+  const TaskItemWidget({super.key, required this.task});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class TaskItemWidget extends StatelessWidget {
               children: [
                 /// Check Box
                 Checkbox(
-                  value: true,
+                  value: task.completed,
                   activeColor: AppColors.primary,
                   onChanged: (value) {},
                 ),
@@ -93,7 +95,7 @@ class TaskItemWidget extends StatelessWidget {
 
                       /// Description
                       AppTextWidget(
-                        AppStrings.alertSuccess.tr(),
+                        task.todo,
                         fontSize: AppDimensions.fontSize07,
                       ),
 
