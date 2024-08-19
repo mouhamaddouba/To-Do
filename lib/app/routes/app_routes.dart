@@ -5,9 +5,9 @@ class AppRoutes {
   /// auth
   static const String auth = '/login';
 
-  /// taskManager
-  static const String taskManager = '/taskManager';
+  /// listTask
+  static const String listTask = '/listTask';
 
-  /// home
-  static const String home = '/home';
+  /// entryManager
+  static const String entryManager = '/entryManager';
 }

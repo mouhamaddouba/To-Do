@@ -6,6 +6,7 @@ import 'package:to_do/app/core/values/constant/app_dimensions.dart';
 import 'package:to_do/app/features/auth/presentation/views/auth_field_view.dart';
 import 'package:to_do/app/global_widgets/app_button_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
+import 'package:to_do/app/routes/app_routes.dart';
 
 class AuthFormView extends StatelessWidget {
   const AuthFormView({
@@ -51,7 +52,12 @@ class AuthFormView extends StatelessWidget {
           AppButtonWidget(
             color: AppColors.primary,
             text: AppStrings.login.tr(),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                AppRoutes.listTask,
+              );
+            },
           ),
         ],
       ),

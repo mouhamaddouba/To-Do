@@ -58,6 +58,9 @@ dependencies:
   # Dependency Injection
   get_it: ^7.7.0
 
+  # Animation
+  animator: ^3.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -78,13 +81,13 @@ flutter:
 
   # To add fonts to your application :
   fonts:
-    - family: Bukra
+    - family: Sora
       fonts:
-        - asset: assets/fonts/bukra/bukra-regular.otf
-          style: normal
-        - asset: assets/fonts/bukra/bukra-bold.ttf
-          weight: 700
-        - asset: assets/fonts/bukra/bukra-light.ttf
+        - asset: assets/fonts/Sora-Light.ttf
+        - asset: assets/fonts/Sora-Regular.ttf
+        - asset: assets/fonts/Sora-Medium.ttf
           weight: 300
-        - asset: assets/fonts/bukra/bukra-medium.otf
-          weight: 600
+        - asset: assets/fonts/Sora-Bold.ttf
+        - asset: assets/fonts/Sora-ExtraLight.ttf
+        - asset: assets/fonts/Sora-ExtraBold.ttf
+          weight: 700

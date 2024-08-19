@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/features/auth/presentation/auth_page.dart';
 import 'package:to_do/app/features/splash/presentation/splash_page.dart';
+import 'package:to_do/app/features/tasks/presentation/list_task/list_task_page.dart';
 import 'package:to_do/app/routes/app_routes.dart';
 
 class AppPages {
@@ -17,12 +18,17 @@ class AppPages {
         return MaterialPageRoute(
           builder: (_) => const AuthPage(),
         );
+
+      case AppRoutes.listTask:
+        return MaterialPageRoute(
+          builder: (_) => const ListTaskPage(),
+        );
     }
     return MaterialPageRoute(
       builder: (BuildContext context) {
         return Scaffold(
           body: Center(
-            child: Text('${AppStrings.piecesInEachKit.tr()}${settings.name}.'),
+            child: Text('${AppStrings.login.tr()}${settings.name}.'),
           ),
         );
       },

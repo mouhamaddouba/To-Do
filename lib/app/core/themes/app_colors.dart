@@ -13,7 +13,7 @@ abstract class AppColors {
   static const Color primary700 = Color(0xff4b67c3);
   static const Color primary800 = Color(0xff425aab);
   static const Color primary900 = Color(0xff384d92);
-  static const Color black00 = Color(0x00000000);
+  static const Color black00 = Color(0xff000000);
   static const Color onLight500 = Color(0xFFF0F0F0);
   static const Color onLight300 = Color(0xFF939393);
   static const Color surfaceVariant = Color(0xFFe2e2ec);

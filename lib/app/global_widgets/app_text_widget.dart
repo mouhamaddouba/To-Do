@@ -42,7 +42,7 @@ class AppTextWidget extends StatelessWidget {
     this.text, {
     super.key,
     this.textStyle,
-    this.textColor = AppColors.gray01,
+    this.textColor = AppColors.black00,
     this.fontSize = AppDimensions.fontSize16,
     this.fontWeight = FontWeight.w400,
     this.letterSpacing = 0.0125,
@@ -206,7 +206,7 @@ class AppTextWidget extends StatelessWidget {
       fontSize: appTextWidget?.fontSize ?? fontSize,
       fontWeight: appTextWidget?.fontWeight ?? fontWeight,
       letterSpacing: letterSpacing,
-      fontFamily: AppFonts.aeonik,
+      fontFamily: AppFonts.sora,
       decoration: appTextWidget?.isUnderlineShown ?? isUnderlineShown ?? false
           ? TextDecoration.underline
           : appTextWidget?.isInlineShown ?? isInlineShown ?? false
