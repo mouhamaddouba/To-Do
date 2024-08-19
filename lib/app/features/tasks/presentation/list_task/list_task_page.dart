@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
 import 'package:to_do/app/features/tasks/presentation/blocs/tasks_bloc.dart';
@@ -17,7 +18,7 @@ class ListTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   BlocProvider(
+    return BlocProvider(
       create: (context) => TasksBloc()..add(FetchTaskEvent()),
       child: Builder(builder: (context) {
         return Scaffold(
