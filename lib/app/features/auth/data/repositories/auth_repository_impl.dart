@@ -16,28 +16,14 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<Failure, LoginData>> login({
-    required int id,
     required String username,
-    required String email,
-    required String firstName,
-    required String lastName,
-    required String gender,
-    required String image,
-    required String token,
-    required String refreshToken,
+    required String password,
   }) async {
     try {
       final result = await _remoteDatasource.login(
         data: LoginRequestDto(
-          id: id,
           username: username,
-          lastName: lastName,
-          firstName: firstName,
-          gender: gender,
-          token: token,
-          refreshToken: refreshToken,
-          email: email,
-          image: image,
+          password: password,
         ),
       );
 
