@@ -4,7 +4,7 @@ import 'package:to_do/app/core/use_case/use_case.dart';
 import 'package:to_do/app/features/auth/domain/entities/login_data.dart';
 import 'package:to_do/app/features/auth/domain/repositories/auth_repository.dart';
 
-class LoginUseCase extends UseCase<LoginData, Params> {
+class LoginUseCase extends UseCase<UserData, Params> {
   final AuthRepository _repository;
 
   LoginUseCase({
@@ -12,7 +12,7 @@ class LoginUseCase extends UseCase<LoginData, Params> {
   }) : _repository = repository;
 
   @override
-  Future<Either<Failure, LoginData>> call(Params params) {
+  Future<Either<Failure, UserData>> call(Params params) {
     return _repository.login(
       username: params.username,
       password: params.password,

@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:to_do/app/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:to_do/app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:to_do/app/features/auth/domain/use_cases/login_use_case.dart';
 
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
 
@@ -15,4 +16,7 @@ Future<void> initAppModule() async {
   //Login Repository instance
   instance.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImpl(remoteDatasource: instance()));
+
+  instance.registerLazySingleton<LoginUseCase>(
+      () => LoginUseCase(repository: instance()));
 }

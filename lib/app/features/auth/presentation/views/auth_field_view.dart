@@ -9,15 +9,18 @@ import 'package:to_do/app/global_widgets/app_icon_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_field_widget.dart';
 
 class AuthFieldView extends StatefulWidget {
-  const AuthFieldView({super.key});
+  final TextEditingController userNameController;
+  final TextEditingController passwordController;
+  const AuthFieldView(
+      {super.key,
+      required this.userNameController,
+      required this.passwordController});
 
   @override
   State<AuthFieldView> createState() => _AuthFieldViewState();
 }
 
 class _AuthFieldViewState extends State<AuthFieldView> {
-  final TextEditingController userNameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   bool showPassword = true;
 
   @override
@@ -26,12 +29,18 @@ class _AuthFieldViewState extends State<AuthFieldView> {
       children: [
         /// User Name
         AppTextFieldWidget(
-          textController: userNameController,
+          textController: widget.userNameController,
           verticalPadding: AppDimensions.paddingOrMargin14,
           backgroundColor: AppColors.background,
           hintText: AppStrings.userName.tr(),
           textColor: AppColors.gray03,
           fontSize: AppDimensions.fontSize10,
+          validator: (text) {
+            if (text == null || text.isEmpty) {
+              return AppStrings.required.tr();
+            }
+            return null;
+          },
         ),
 
         /// Space
@@ -41,7 +50,7 @@ class _AuthFieldViewState extends State<AuthFieldView> {
 
         /// Password
         AppTextFieldWidget(
-          textController: passwordController,
+          textController: widget.passwordController,
           backgroundColor: Theme.of(context).brightness == Brightness.light
               ? AppColors.onPrimary
               : AppColors.darkOnPrimary,
@@ -55,6 +64,15 @@ class _AuthFieldViewState extends State<AuthFieldView> {
           maxLines: AppConstants.maxLines,
           fontSize: AppDimensions.fontSize10,
           obscureText: !showPassword,
+          validator: (text) {
+            if (text == null || text.isEmpty) {
+              return AppStrings.required.tr();
+            }
+            if (text.length < 8) {
+              return AppStrings.required.tr();
+            }
+            return null;
+          },
           suffixIcon: AppIconWidget(
             color: Theme.of(context).brightness == Brightness.light
                 ? AppColors.gray03

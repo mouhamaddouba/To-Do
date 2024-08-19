@@ -1,15 +1,15 @@
-class LoginData {
-  final String id;
+class UserData {
+  final int id;
   final String username;
   final String email;
   final String firstName;
   final String lastName;
   final String gender;
   final String image;
-  final bool token;
-  final bool refreshToken;
+  final String token;
+  final String refreshToken;
 
-  LoginData({
+  UserData({
     required this.id,
     required this.firstName,
     required this.lastName,
@@ -21,10 +21,10 @@ class LoginData {
     required this.username,
   });
 
-  factory LoginData.fromJson(
+  factory UserData.fromJson(
     Map<String, dynamic> encodedData,
   ) =>
-      LoginData(
+      UserData(
         id: encodedData['id'],
         username: encodedData['username'],
         refreshToken: encodedData['refreshToken'],

@@ -15,7 +15,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }) : _remoteDatasource = remoteDatasource;
 
   @override
-  Future<Either<Failure, LoginData>> login({
+  Future<Either<Failure, UserData>> login({
     required String username,
     required String password,
   }) async {

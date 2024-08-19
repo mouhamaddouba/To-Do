@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:to_do/app/core/app_settings/app_settings.dart';
 import 'package:to_do/app/core/storage/app_shared_prefrence.dart';
 import 'package:to_do/app/core/storage/app_storage_keys.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
+import 'package:to_do/app/features/auth/domain/entities/login_data.dart';
 
 part 'splash_event.dart';
+
 part 'splash_state.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
@@ -22,6 +26,14 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
         AppStorageKeys.token,
       );
       AppSettings.token = token;
+      if (token != null) {
+        String? userModelString = await AppSharedPreferences().read(
+          AppStorageKeys.user,
+        );
+        if (userModelString != null && userModelString.isNotEmpty) {
+          AppSettings.user = UserData.fromJson(json.decode(userModelString));
+        }
+      }
       emit(
         SplashLoaded(token: token),
       );

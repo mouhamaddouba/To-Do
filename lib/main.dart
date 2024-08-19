@@ -6,6 +6,8 @@ import 'package:to_do/app.dart';
 import 'package:to_do/app/core/translations/localization/app_translations.dart';
 import 'package:to_do/app/core/utils/app_prefs_utils.dart';
 
+import 'app/core/di/di.dart';
+
 Future<void> main() async {
   /// Inject widget app
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +28,8 @@ Future<void> main() async {
   );
 
   await AppPrefs().init();
+
+  await initAppModule();
 
   /// Make system chrome in dark mode
   SystemChrome.setSystemUIOverlayStyle(

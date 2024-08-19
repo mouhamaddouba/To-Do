@@ -22,7 +22,7 @@ class NetworkResponse<T> {
     T Function(Map<String, dynamic> json)? fromJsonT,
   ]) =>
       NetworkResponse(
-        succeeded: json['succeeded'],
+        succeeded: json['succeeded'] ?? true,
         key: json['key'] ?? '',
         message: json['message'] ?? '',
         pagedList: json['pagedList'] == null
@@ -48,15 +48,14 @@ class NetworkResponse<T> {
       return null;
     }
 
-    if (json['data'] == null) {
-      return null;
-    }
+/*    if (json['data'] == null) {
+      print(json);
 
-    if (json['data'] is Map) {
-      return fromJsonT(
-        json['data'],
-      );
-    }
+      return null;
+    }*/
+    return fromJsonT(
+      json,
+    );
 
     return null;
   }

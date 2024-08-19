@@ -1,6 +1,6 @@
 import 'package:to_do/app/features/auth/domain/entities/login_data.dart';
 
-class LoginResponseDto extends LoginData {
+class LoginResponseDto extends UserData {
   LoginResponseDto({
     required super.id,
     required super.username,

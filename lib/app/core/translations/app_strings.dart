@@ -109,4 +109,6 @@ abstract class AppStrings {
   static const String save = 'save';
   static const String reset = 'reset';
   static const String seconds = 'seconds';
+
+  static const String required = 'required';
 }
