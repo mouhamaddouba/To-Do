@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:to_do/app/core/app_settings/app_settings.dart';
 import 'package:to_do/app/core/di/di.dart';
 import 'package:to_do/app/core/error/failures.dart';
 import 'package:to_do/app/core/storage/app_shared_prefrence.dart';
@@ -29,6 +30,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(AuthLoadError(failure: failure));
         },
         (UserData data) async {
+          AppSettings.user = data;
+          AppSettings.token = data.token;
           await AppSharedPreferences().write(AppStorageKeys.token, data.token);
           await AppSharedPreferences()
               .write(AppStorageKeys.user, json.encode(data.toJson()));

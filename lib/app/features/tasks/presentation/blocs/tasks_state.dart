@@ -8,6 +8,12 @@ class TasksInitial extends TasksState {}
 
 class TasksLoading extends TasksState {}
 
-class TasksLoaded extends TasksState {}
+class TasksLoaded extends TasksState {
+  final TasksData tasks;
+  TasksLoaded({required this.tasks});
+}
 
-class TasksError extends TasksState {}
+class TasksLoadError extends TasksState {
+  final Failure failure;
+  TasksLoadError({required this.failure});
+}
