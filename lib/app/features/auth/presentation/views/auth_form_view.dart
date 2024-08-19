@@ -61,7 +61,7 @@ class AuthFormView extends StatelessWidget {
               if (state is AuthLoaded) {
                 Navigator.pushReplacementNamed(
                   context,
-                  AppRoutes.home,
+                  AppRoutes.listTask,
                 );
               }
               if (state is AuthLoadError) {

@@ -1,3 +1,7 @@
+animator
+2.12
+file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/animator-3.3.0/
+file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/animator-3.3.0/lib/
 archive
 3.0
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/archive-3.6.1/
@@ -238,6 +242,10 @@ mime
 3.2
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/mime-1.0.5/
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/mime-1.0.5/lib/
+navigation_builder
+2.18
+file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/navigation_builder-0.0.4/
+file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/navigation_builder-0.0.4/lib/
 nested
 2.12
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/nested-1.0.0/
@@ -354,6 +362,10 @@ stack_trace
 2.18
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.1/
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.1/lib/
+states_rebuilder
+2.12
+file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/states_rebuilder-6.4.0/
+file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/states_rebuilder-6.4.0/lib/
 stream_channel
 2.19
 file:///C:/Users/muham/AppData/Local/Pub/Cache/hosted/pub.dev/stream_channel-2.1.2/
