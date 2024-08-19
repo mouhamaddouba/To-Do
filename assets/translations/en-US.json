@@ -4,6 +4,7 @@
   "userName": "User Name",
   "password": "Password",
   "login": "Login",
+  "required": "Required",
   "calenderTask": "Sort by date",
   "completeTask": "Completed tasks",
   "pendingTask": "Pending tasks",
@@ -12,5 +13,13 @@
   "errorFetch": "Error try again please",
   "searchTask": "Search recent task",
   "editTask": "Edit task",
-  "deleteTask": "Delete task"
+  "deleteTask": "Delete task",
+  "createTask": "Create new task",
+  "taskStart": "Task starting at",
+  "selectDate": "Select a date range",
+  "title": "Title",
+  "taskTitle": "Task title",
+  "description": "Description",
+  "taskDescription": "Task description",
+  "save": "Save"
 }

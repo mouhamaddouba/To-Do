@@ -85,5 +85,6 @@ abstract class AppConstants {
   static const double tween12 = 12;
   static const double tween30 = 30;
 
-  /// Index Items
+  /// Hero Tags
+  static const String heroFloatingButton = '000';
 }

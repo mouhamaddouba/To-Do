@@ -8,6 +8,7 @@ import 'package:to_do/app/core/values/constant/app_dimensions.dart';
 import 'package:to_do/app/features/auth/presentation/blocs/auth_bloc.dart';
 import 'package:to_do/app/features/auth/presentation/views/auth_field_view.dart';
 import 'package:to_do/app/global_widgets/app_button_widget.dart';
+import 'package:to_do/app/global_widgets/app_loading_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
 import 'package:to_do/app/routes/app_routes.dart';
 
@@ -65,22 +66,30 @@ class AuthFormView extends StatelessWidget {
                 );
               }
               if (state is AuthLoadError) {
-                showMessage(context,
-                    message: state.failure.message, isError: true);
+                showMessage(
+                  context,
+                  message: state.failure.message,
+                  isError: true,
+                );
               }
             },
             builder: (context, state) {
               if (state is AuthLoading) {
-                return const Center(child: CircularProgressIndicator());
+                return const Center(
+                  child: AppLoadingWidget(),
+                );
               }
               return AppButtonWidget(
                 color: AppColors.primary,
                 text: AppStrings.login.tr(),
                 onPressed: () {
                   if (loginFormKey.currentState!.validate()) {
-                    BlocProvider.of<AuthBloc>(context).add(Login(
+                    BlocProvider.of<AuthBloc>(context).add(
+                      Login(
                         username: userNameController.text,
-                        password: passwordController.text));
+                        password: passwordController.text,
+                      ),
+                    );
                   }
                 },
               );

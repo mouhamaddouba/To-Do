@@ -40,9 +40,9 @@ abstract class AppStrings {
 
   /// Region login
   static const String loginWelcome = 'loginWelcome';
-  static const String login = 'login';
   static const String userName = 'userName';
   static const String password = 'password';
+  static const String login = 'login';
   static const String required = 'required';
 
   /// Region List Task
@@ -55,4 +55,14 @@ abstract class AppStrings {
   static const String searchTask = 'searchTask';
   static const String editTask = 'editTask';
   static const String deleteTask = 'deleteTask';
+
+  /// Region Entry Manager
+  static const String createTask = 'createTask';
+  static const String taskStart = 'taskStart';
+  static const String selectDate = 'selectDate';
+  static const String title = 'title';
+  static const String taskTitle = 'taskTitle';
+  static const String description = 'description';
+  static const String taskDescription = 'taskDescription';
+  static const String save = 'save';
 }
