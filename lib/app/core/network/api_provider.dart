@@ -137,7 +137,7 @@ class ApiProvider {
   static Future<void> delete({
     required String token,
     required String url,
-    required Map<String, dynamic> data,
+    Map<String, dynamic>? data,
     Map<String, dynamic> queryParameters = const {},
     required Function(dynamic data) onSuccess,
     required Function(String errorMessage) onError,

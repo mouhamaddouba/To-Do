@@ -57,7 +57,9 @@ class ListTaskPage extends StatelessWidget {
                       );
                     } else {
                       /// fetch data success
-                      return const ListTasksItemsView();
+                      return ListTasksItemsView(
+                        tasksList: state.tasks.todos,
+                      );
                     }
                   }
                   return Center(
