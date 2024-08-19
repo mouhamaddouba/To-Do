@@ -25,6 +25,7 @@ abstract class AppConstants {
   static const double opacity0_6 = 0.6;
   static const double opacity0_7 = 0.7;
   static const double opacity01 = 1.0;
+  static const double opacity0_15 = .15;
 
   /// Constant duration
   static const int duration00 = 0;
@@ -37,6 +38,7 @@ abstract class AppConstants {
   static const int duration600 = 600;
   static const int duration800 = 800;
   static const int duration1200 = 1200;
+  static const int duration1500 = 1500;
   static const int duration1800 = 1800;
   static const int duration2100 = 2100;
   static const int duration2500 = 2500;
@@ -44,6 +46,7 @@ abstract class AppConstants {
   /// Constant offsets
   static const Offset offset10 = Offset(10, 10);
   static const Offset offset00 = Offset(0, 0);
+  static const Offset offset05 = Offset(0, 5);
 
   /// Constant transform
   static const double transform12 = 12;
@@ -65,7 +68,11 @@ abstract class AppConstants {
   static const double mainAxis8 = 8;
 
   /// Constant indexes
+  static const int index00 = 0;
   static const int index01 = 1;
+  static const int index02 = 2;
+  static const int index03 = 3;
+  static const int index04 = 4;
   static const int index05 = 5;
   static const int index06 = 6;
   static const int index07 = 7;
@@ -74,6 +81,9 @@ abstract class AppConstants {
   static const double tween00 = 0;
   static const double tween0_9 = 0.9;
   static const double tween1_1 = 1.1;
+  static const double tween10 = 10;
   static const double tween12 = 12;
   static const double tween30 = 30;
+
+  /// Index Items
 }

@@ -96,7 +96,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               if (state.token != null) {
                 Navigator.pushReplacementNamed(
                   context,
-                  AppRoutes.home,
+                  AppRoutes.listTask,
                 );
               } else {
                 Navigator.pushReplacementNamed(

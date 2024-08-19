@@ -91,7 +91,7 @@ class AppTextFieldWidget extends StatelessWidget {
     hintText = hintText == null
         ? AppConstants.emptyText
         : hintText?.isEmpty == true
-            ? AppStrings.save.tr()
+            ? AppStrings.login.tr()
             : hintText;
 
     return SizedBox(

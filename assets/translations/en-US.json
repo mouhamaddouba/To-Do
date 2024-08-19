@@ -1,8 +1,13 @@
 {
   "appName": "To-Do List",
   "loginWelcome": "Log In",
-  "login": "Login",
   "userName": "User Name",
-  "password": "Password"
+  "password": "Password",
+  "login": "Login",
+  "calenderTask": "Sort by date",
+  "completeTask": "Completed tasks",
+  "pendingTask": "Pending tasks",
+  "scheduleTasks": "Schedule your tasks",
+  "manageEfficiently": "Manage your task schedule easily\nand efficiently"
 
 }

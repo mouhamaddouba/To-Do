@@ -71,6 +71,7 @@ abstract class AppDimensions {
   static const double iconSize36 = 36.0;
   static const double iconSize38 = 38.0;
   static const double iconSize40 = 40.0;
+  static const double iconSize70 = 70.0;
 
   ///endregion icon size
 
@@ -87,6 +88,7 @@ abstract class AppDimensions {
   static const double width08 = 8.0;
   static const double width09 = 9.0;
   static const double width10 = 10.0;
+  static const double width16 = 16.0;
   static const double width20 = 20.0;
   static const double width25 = 25.0;
   static const double width30 = 30.0;
@@ -120,6 +122,7 @@ abstract class AppDimensions {
   static const double height01 = 1.0;
   static const double height02 = 2.0;
   static const double height03 = 3.0;
+  static const double height3_7 = 3.7;
   static const double height04 = 4.0;
   static const double height05 = 5.0;
   static const double height06 = 6.0;
@@ -128,6 +131,7 @@ abstract class AppDimensions {
   static const double height09 = 9.0;
   static const double height10 = 10.0;
   static const double height15 = 15.0;
+  static const double height16 = 16.0;
   static const double height20 = 20.0;
   static const double height25 = 25.0;
   static const double height30 = 30.0;
