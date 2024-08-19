@@ -23,6 +23,7 @@ Future<void> main() async {
 
   await AppPrefs().init();
 
+  /// Init Injection
   await initAppModule();
 
   runApp(
