@@ -15,57 +15,60 @@ class ListTaskFloatButtonView extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
 
-    return SizedBox(
-      height: w / AppDimensions.height3_7,
-      width: w / AppDimensions.width06,
-      child: Animator<double>(
-        duration: const Duration(
-          milliseconds: AppConstants.duration1500,
-        ),
-        cycles: AppConstants.duration00,
-        curve: Curves.easeInOut,
-        tween: Tween<double>(
-          begin: AppConstants.tween00,
-          end: AppConstants.tween10,
-        ),
-        builder: (context, animatorState, child) {
-          return Column(
-            children: [
-              /// height the icon animate up and down
-              SizedBox(
-                height: animatorState.value * AppDimensions.height04,
-              ),
-              Container(
-                /// Shadow about icon
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      offset: AppConstants.offset05,
-                      blurRadius: AppDimensions.radius20,
-                      color: AppColors.primary.withOpacity(
-                        AppConstants.opacity0_15,
+    return Hero(
+      tag: AppConstants.heroFloatingButton,
+      child: SizedBox(
+        height: w / AppDimensions.height3_7,
+        width: w / AppDimensions.width06,
+        child: Animator<double>(
+          duration: const Duration(
+            milliseconds: AppConstants.duration1500,
+          ),
+          cycles: AppConstants.duration00,
+          curve: Curves.easeInOut,
+          tween: Tween<double>(
+            begin: AppConstants.tween00,
+            end: AppConstants.tween10,
+          ),
+          builder: (context, animatorState, child) {
+            return Column(
+              children: [
+                /// height the icon animate up and down
+                SizedBox(
+                  height: animatorState.value * AppDimensions.height04,
+                ),
+                Container(
+                  /// Shadow about icon
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        offset: AppConstants.offset05,
+                        blurRadius: AppDimensions.radius20,
+                        color: AppColors.primary.withOpacity(
+                          AppConstants.opacity0_15,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                /// Icon
-                child: AppIconWidget(
-                  color: AppColors.primary,
-                  iconData: Icons.add_circle,
-                  size: AppDimensions.iconSize70,
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.entryManager,
-                    );
-                  },
+                  /// Icon
+                  child: AppIconWidget(
+                    color: AppColors.primary,
+                    iconData: Icons.add_circle,
+                    size: AppDimensions.iconSize70,
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.entryManager,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }

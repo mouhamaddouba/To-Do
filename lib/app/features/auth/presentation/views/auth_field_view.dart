@@ -11,10 +11,12 @@ import 'package:to_do/app/global_widgets/app_text_field_widget.dart';
 class AuthFieldView extends StatefulWidget {
   final TextEditingController userNameController;
   final TextEditingController passwordController;
-  const AuthFieldView(
-      {super.key,
-      required this.userNameController,
-      required this.passwordController});
+
+  const AuthFieldView({
+    super.key,
+    required this.userNameController,
+    required this.passwordController,
+  });
 
   @override
   State<AuthFieldView> createState() => _AuthFieldViewState();
