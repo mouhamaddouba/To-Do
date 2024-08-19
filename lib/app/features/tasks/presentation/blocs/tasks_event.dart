@@ -21,7 +21,14 @@ class SearchTaskEvent extends TasksEvent {
 }
 
 class FetchTaskEvent extends TasksEvent {
-  FetchTaskEvent();
+  final int limit;
+
+  final int skip;
+
+  FetchTaskEvent({
+    this.skip = 0,
+    this.limit = 0,
+  });
 }
 
 class EditTaskEvent extends TasksEvent {

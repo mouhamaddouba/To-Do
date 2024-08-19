@@ -25,7 +25,7 @@ class AppNoDataFoundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.end,
+      mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.center,
       children: [
         /// Image
         AppImageWidget(

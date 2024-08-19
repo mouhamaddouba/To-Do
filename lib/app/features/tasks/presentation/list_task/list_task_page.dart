@@ -17,47 +17,61 @@ class ListTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      /// AppBar
-      appBar: const ListTaskAppbarView(),
+    return BlocProvider(
+      create: (context) => TasksBloc()..add(FetchTaskEvent()),
+      child: Builder(builder: (context) {
+        return Scaffold(
+          /// AppBar
+          appBar: const ListTaskAppbarView(),
 
-      /// Body
-      body: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Padding(
-          padding: const EdgeInsets.all(
-            AppDimensions.paddingOrMargin16,
+          /// Body
+          body: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Padding(
+              padding: const EdgeInsets.all(
+                AppDimensions.paddingOrMargin16,
+              ),
+              child: BlocConsumer<TasksBloc, TasksState>(
+                /// For error in fetch data
+                listener: (context, state) {
+                  if (state is TasksLoadError) {}
+                },
+                builder: (context, state) {
+                  if (state is TasksLoading) {
+                    /// For loading data
+                    return const Center(
+                      child: AppLoadingWidget(),
+                    );
+                  }
+
+                  /// for no data found
+                  if (state is TasksLoaded) {
+                    if (state.tasks.todos.isEmpty) {
+                      return Center(
+                        child: AppNoDataFoundWidget(
+                          title: AppStrings.alertSuccess.tr(),
+                        ),
+                      );
+                    } else {
+                      /// fetch data success
+                      return const ListTasksItemsView();
+                    }
+                  }
+                  return Center(
+                    child: AppNoDataFoundWidget(
+                      title: AppStrings.alertSuccess.tr(),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
-          child: BlocConsumer<TasksBloc, TasksState>(
-            /// For error in fetch data
-            listener: (context, state) {
-              if (state is TasksError) {}
-            },
-            builder: (context, state) {
-              if (state is TasksLoading) {
-                /// For loading data
-                return const Center(
-                  child: AppLoadingWidget(),
-                );
-              }
 
-              /// for no data found
-              if (state is TasksLoaded) {
-                return AppNoDataFoundWidget(
-                  title: AppStrings.alertSuccess.tr(),
-                );
-              }
-
-              /// fetch data success
-              return const ListTasksItemsView();
-            },
-          ),
-        ),
-      ),
-
-      /// Floating Button
-      floatingActionButton: const ListTaskFloatButtonView(),
+          /// Floating Button
+          floatingActionButton: const ListTaskFloatButtonView(),
+        );
+      }),
     );
   }
 }
