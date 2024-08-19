@@ -3,17 +3,18 @@ import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/values/constant/app_assets.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
+import 'package:to_do/app/global_widgets/app_icon_widget.dart';
 import 'package:to_do/app/global_widgets/app_image_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
 
-class AppNoDataFoundWidget extends StatelessWidget {
+class AppErrorWidget extends StatelessWidget {
   final double? widthImage;
   final double? space;
   final String title;
   final String? content;
   final MainAxisAlignment? mainAxisAlignment;
 
-  const AppNoDataFoundWidget({
+  const AppErrorWidget({
     super.key,
     this.widthImage,
     this.space,
@@ -29,8 +30,8 @@ class AppNoDataFoundWidget extends StatelessWidget {
       children: [
         /// Image
         AppImageWidget(
-          path: AppAssets.logo,
-          width: widthImage ?? AppDimensions.width220,
+          path: AppAssets.serverError,
+          width: widthImage ?? AppDimensions.width280,
         ),
 
         /// Space
@@ -46,15 +47,18 @@ class AppNoDataFoundWidget extends StatelessWidget {
           fontSize: AppDimensions.fontSize14,
         ),
 
-        /// Content
-        AppTextWidget(
-          content ?? '',
-          fontWeight: FontWeight.normal,
-          textAlign: TextAlign.center,
-          fontSize: AppDimensions.fontSize10,
-          textColor: AppColors.black00.withOpacity(
-            AppConstants.opacity0_6,
+        /// Space
+        SizedBox(
+          height: space ?? AppDimensions.paddingOrMargin10,
+        ),
+
+        /// Reload
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.replay,
           ),
+          iconSize: 30,
         ),
       ],
     );

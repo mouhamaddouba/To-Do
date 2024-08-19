@@ -7,7 +7,10 @@
   "calenderTask": "Sort by date",
   "completeTask": "Completed tasks",
   "pendingTask": "Pending tasks",
-  "scheduleTasks": "Schedule your tasks",
-  "manageEfficiently": "Manage your task schedule easily\nand efficiently"
-
+  "noTaskYet": "No task yet",
+  "manageEfficiently": "Manage your task schedule easily\nand efficiently",
+  "errorFetch": "Error try again please",
+  "searchTask": "Search recent task",
+  "editTask": "Edit task",
+  "deleteTask": "Delete task"
 }

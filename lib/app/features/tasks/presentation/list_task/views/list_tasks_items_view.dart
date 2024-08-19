@@ -15,52 +15,55 @@ class ListTasksItemsView extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
 
-    return Column(
-      children: [
-        /// Text Field Search
-        AppTextFieldWidget(
-          textController: searchController,
-          backgroundColor: Theme.of(context).brightness == Brightness.light
-              ? AppColors.onPrimary
-              : AppColors.darkOnPrimary,
-          verticalPadding: AppDimensions.paddingOrMargin14,
-          textColor: Theme.of(context).brightness == Brightness.light
-              ? AppColors.black01
-              : AppColors.whiteBlue,
-          hintText: AppStrings.password.tr(),
-          textInputAction: TextInputAction.done,
-          horizontalPadding: AppDimensions.paddingOrMargin16,
-          maxLines: AppConstants.maxLines,
-          fontSize: AppDimensions.fontSize10,
-          prefixIcon: AppIconWidget(
-            color: Theme.of(context).brightness == Brightness.light
-                ? AppColors.gray03
-                : AppColors.darkPrimary,
-            iconData: Icons.search,
-          ),
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
         ),
+        child: Column(
+          children: [
+            /// Text Field Search
+            AppTextFieldWidget(
+              textController: searchController,
+              backgroundColor: AppColors.onPrimary,
+              verticalPadding: AppDimensions.paddingOrMargin14,
+              horizontalPadding: AppDimensions.paddingOrMargin16,
+              textColor: AppColors.gray03,
+              hintText: AppStrings.searchTask.tr(),
+              textInputAction: TextInputAction.done,
+              maxLines: AppConstants.maxLines,
+              fontSize: AppDimensions.fontSize10,
+              prefixIcon: const AppIconWidget(
+                color: AppColors.gray03,
+                iconData: Icons.search,
+              ),
+            ),
 
-        /// Space
-        const SizedBox(
-          height: AppDimensions.paddingOrMargin24,
+            /// Space
+            const SizedBox(
+              height: AppDimensions.paddingOrMargin24,
+            ),
+
+            /// List task
+            Expanded(
+              child: ListView.separated(
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return const TaskItemWidget();
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return const SizedBox(
+                    height: AppDimensions.paddingOrMargin8,
+                  );
+                },
+              ),
+            )
+          ],
         ),
-
-        /// List task
-        Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return const TaskItemWidget();
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(
-                height: AppDimensions.paddingOrMargin8,
-              );
-            },
-          ),
-        )
-      ],
+      ),
     );
   }
 }

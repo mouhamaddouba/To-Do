@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/features/auth/presentation/auth_page.dart';
 import 'package:to_do/app/features/splash/presentation/splash_page.dart';
+import 'package:to_do/app/features/tasks/presentation/entry_manager/entry_manager_page.dart';
 import 'package:to_do/app/features/tasks/presentation/list_task/list_task_page.dart';
 import 'package:to_do/app/routes/app_routes.dart';
 
@@ -22,6 +23,11 @@ class AppPages {
       case AppRoutes.listTask:
         return MaterialPageRoute(
           builder: (_) => const ListTaskPage(),
+        );
+
+      case AppRoutes.entryManager:
+        return MaterialPageRoute(
+          builder: (_) => const EntryManagerPage(),
         );
     }
     return MaterialPageRoute(
