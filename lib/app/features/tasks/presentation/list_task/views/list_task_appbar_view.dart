@@ -18,6 +18,7 @@ class ListTaskAppbarView extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.white01,
       automaticallyImplyLeading: false,
       elevation: AppDimensions.zero,
 

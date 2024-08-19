@@ -14,6 +14,7 @@ abstract class AppAssets {
   static const String pendingTask = '$_icons/task.svg';
   static const String edit = '$_icons/edit.svg';
   static const String delete = '$_icons/delete.svg';
+  static const String verticalMenu = '$_icons/vertical_menu.svg';
 
   ///region Image
   static const String emptyImage = '$_images/emptyImage';
@@ -21,4 +22,5 @@ abstract class AppAssets {
 
   ///region Svgs
   static const String logInToDo = '$_svgs/login_to_do.svg';
+  static const String serverError = '$_svgs/server_error.svg';
 }

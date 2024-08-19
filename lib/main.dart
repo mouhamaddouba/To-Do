@@ -21,20 +21,9 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  /// Set setup to chrome system
-  SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.manual,
-    overlays: [],
-  );
-
   await AppPrefs().init();
 
   await initAppModule();
-
-  /// Make system chrome in dark mode
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.dark,
-  );
 
   runApp(
     /// Translations

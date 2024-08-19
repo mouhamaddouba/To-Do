@@ -17,12 +17,13 @@ class ListTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return   BlocProvider(
       create: (context) => TasksBloc()..add(FetchTaskEvent()),
       child: Builder(builder: (context) {
         return Scaffold(
           /// AppBar
           appBar: const ListTaskAppbarView(),
+          backgroundColor: AppColors.white01,
 
           /// Body
           body: GestureDetector(

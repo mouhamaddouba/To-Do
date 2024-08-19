@@ -44,7 +44,7 @@ class AppLoadingWidget extends StatelessWidget {
 
           // Overlay
           isLoading
-              ? SpinKitSpinningLines(
+              ? SpinKitFadingCircle(
                   color: Theme.of(context).primaryColor,
                   size: AppDimensions.paddingOrMargin70,
                 )

@@ -43,13 +43,16 @@ abstract class AppStrings {
   static const String login = 'login';
   static const String userName = 'userName';
   static const String password = 'password';
-
   static const String required = 'required';
 
   /// Region List Task
   static const String calenderTask = 'calenderTask';
   static const String completeTask = 'completeTask';
   static const String pendingTask = 'pendingTask';
-  static const String scheduleTasks = 'scheduleTasks';
+  static const String noTaskYet = 'noTaskYet';
   static const String manageEfficiently = 'manageEfficiently';
+  static const String errorFetch = 'errorFetch';
+  static const String searchTask = 'searchTask';
+  static const String editTask = 'editTask';
+  static const String deleteTask = 'deleteTask';
 }

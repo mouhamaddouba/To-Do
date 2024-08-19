@@ -79,6 +79,7 @@ abstract class AppDimensions {
   static const double width_09 = 0.09;
   static const double width_15 = 0.15;
   static const double width01 = 1.0;
+  static const double width1_5 = 1.5;
   static const double width02 = 2.0;
   static const double width03 = 3.0;
   static const double width04 = 4.0;

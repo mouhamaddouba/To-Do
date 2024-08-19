@@ -134,6 +134,7 @@ class AppTextFieldWidget extends StatelessWidget {
           enabledBorder: _getBorder(),
           focusedBorder: _getBorderEnable(),
           disabledBorder: _getBorder(),
+          errorBorder: _getBorderError(),
           suffixIcon: _getSuffixIconWidget(),
           prefixIcon: _getPrefixIconWidget(),
         ),
@@ -154,6 +155,18 @@ class AppTextFieldWidget extends StatelessWidget {
     );
   }
 
+  OutlineInputBorder _getBorderError() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(
+        radius,
+      ),
+      borderSide: const BorderSide(
+        color: AppColors.red01,
+        width: AppDimensions.width1_5,
+      ),
+    );
+  }
+
   OutlineInputBorder _getBorderEnable() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(
@@ -161,7 +174,7 @@ class AppTextFieldWidget extends StatelessWidget {
       ),
       borderSide: const BorderSide(
         color: AppColors.primary,
-        width: AppDimensions.width02,
+        width: AppDimensions.width1_5,
       ),
     );
   }
