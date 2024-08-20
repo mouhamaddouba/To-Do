@@ -11,7 +11,11 @@ import 'package:to_do/app/global_widgets/app_text_field_widget.dart';
 
 class ListTasksItemsView extends StatelessWidget {
   final List<SingleTaskData> tasksList;
-  const ListTasksItemsView({super.key, required this.tasksList});
+
+  const ListTasksItemsView({
+    super.key,
+    required this.tasksList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,51 +24,48 @@ class ListTasksItemsView extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => FocusScope.of(context).unfocus(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: Column(
-          children: [
-            /// Text Field Search
-            AppTextFieldWidget(
-              textController: searchController,
-              backgroundColor: AppColors.onPrimary,
-              verticalPadding: AppDimensions.paddingOrMargin14,
-              horizontalPadding: AppDimensions.paddingOrMargin16,
-              textColor: AppColors.gray03,
-              hintText: AppStrings.searchTask.tr(),
-              textInputAction: TextInputAction.done,
-              maxLines: AppConstants.maxLines,
-              fontSize: AppDimensions.fontSize10,
-              prefixIcon: const AppIconWidget(
-                color: AppColors.gray03,
-                iconData: Icons.search,
-              ),
+      child: Column(
+        children: [
+          /// Text Field Search
+          AppTextFieldWidget(
+            textController: searchController,
+            backgroundColor: AppColors.onPrimary,
+            verticalPadding: AppDimensions.paddingOrMargin14,
+            horizontalPadding: AppDimensions.paddingOrMargin16,
+            textColor: AppColors.gray03,
+            hintText: AppStrings.searchTask.tr(),
+            textInputAction: TextInputAction.done,
+            maxLines: AppConstants.maxLines,
+            fontSize: AppDimensions.fontSize10,
+            prefixIcon: const AppIconWidget(
+              color: AppColors.gray03,
+              iconData: Icons.search,
             ),
+          ),
 
-            /// Space
-            const SizedBox(
-              height: AppDimensions.paddingOrMargin24,
+          /// Space
+          const SizedBox(
+            height: AppDimensions.paddingOrMargin24,
+          ),
+
+          /// List task
+          Expanded(
+            child: ListView.separated(
+              shrinkWrap: true,
+              itemCount: tasksList.length,
+              itemBuilder: (context, index) {
+                return TaskItemWidget(
+                  task: tasksList[index],
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(
+                  height: AppDimensions.paddingOrMargin8,
+                );
+              },
             ),
-
-            /// List task
-            Expanded(
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: tasksList.length,
-                itemBuilder: (context, index) {
-                  return TaskItemWidget(task: tasksList[index]);
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: AppDimensions.paddingOrMargin8,
-                  );
-                },
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/app/core/themes/app_colors.dart';
-import 'package:to_do/app/core/utils/app_prefs_utils.dart';
 
 enum ThemeEnum {
   system,
@@ -21,18 +20,7 @@ class AppTheme {
   static final String dark = ThemeEnum.dark.name;
 
   static ThemeData getAppTheme() {
-    final String prefsTheme = AppPrefs().appTheme;
     return _lightTheme();
-  }
-
-  static bool _isDarkMode() {
-    final darkMode =
-        WidgetsBinding.instance.platformDispatcher.platformBrightness;
-    if (darkMode == Brightness.dark) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   static String getAppThemeMode() {
@@ -40,10 +28,6 @@ class AppTheme {
   }
 
   static ThemeData _lightTheme() {
-    return _baseTheme().copyWith();
-  }
-
-  static ThemeData _darkTheme() {
     return _baseTheme().copyWith();
   }
 

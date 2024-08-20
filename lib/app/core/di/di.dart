@@ -5,17 +5,14 @@ import 'package:to_do/app/features/auth/domain/use_cases/login_use_case.dart';
 import 'package:to_do/app/features/tasks/data/datasources/tasks_remote_datasource.dart';
 import 'package:to_do/app/features/tasks/data/repositories/tasks_repository_impl.dart';
 import 'package:to_do/app/features/tasks/domain/repositories/tasks_repository.dart';
-import 'package:to_do/app/features/tasks/domain/use_cases/add_task_use_case.dart';
-import 'package:to_do/app/features/tasks/domain/use_cases/delete_task_use_case.dart';
-import 'package:to_do/app/features/tasks/domain/use_cases/fetch_tasks_use_case.dart';
-import 'package:to_do/app/features/tasks/domain/use_cases/update_task_use_case.dart';
+import 'package:to_do/app/features/tasks/domain/use_cases/tasks_use_case.dart';
 
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
 
 final instance = GetIt.instance;
 
 Future<void> initAppModule() async {
-  // Auth
+  /// Auth
   // Login RemoteDataSource instance
   instance.registerLazySingleton<AuthRemoteDatasource>(
       () => AuthRemoteDatasourceImpl());
@@ -27,7 +24,7 @@ Future<void> initAppModule() async {
   instance.registerLazySingleton<LoginUseCase>(
       () => LoginUseCase(repository: instance()));
 
-  // Tasks
+  /// Tasks
   // Tasks RemoteDataSource instance
   instance.registerLazySingleton<TasksRemoteDatasource>(
       () => TasksRemoteDatasourceImpl());

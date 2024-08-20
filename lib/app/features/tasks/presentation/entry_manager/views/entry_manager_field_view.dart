@@ -12,7 +12,6 @@ class EntryManagerFieldView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
 
     return Padding(
@@ -22,36 +21,6 @@ class EntryManagerFieldView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// Title
-          AppTextWidget(
-            AppStrings.title.tr(),
-            fontWeight: FontWeight.bold,
-            fontSize: AppDimensions.fontSize10,
-          ),
-
-          /// Space
-          const SizedBox(
-            height: AppDimensions.paddingOrMargin8,
-          ),
-
-          /// Title text field
-          AppTextFieldWidget(
-            textController: titleController,
-            backgroundColor: AppColors.onPrimary,
-            verticalPadding: AppDimensions.paddingOrMargin14,
-            horizontalPadding: AppDimensions.paddingOrMargin16,
-            textColor: AppColors.gray03,
-            hintText: AppStrings.taskTitle.tr(),
-            textInputAction: TextInputAction.done,
-            maxLines: AppConstants.maxLines,
-            fontSize: AppDimensions.fontSize10,
-          ),
-
-          /// Space
-          const SizedBox(
-            height: AppDimensions.paddingOrMargin16,
-          ),
-
           /// Description
           AppTextWidget(
             AppStrings.description.tr(),

@@ -191,10 +191,11 @@ class AppAnimationDialogWidget extends StatelessWidget {
                   child: AppTextWidget(
                     message.tr(),
                     textAlign: TextAlign.start,
-                    fontSize: AppDimensions.fontSize16,
+                    fontSize: AppDimensions.fontSize10,
                     fontWeight: FontWeight.w500,
                     textColor: AppColors.black01,
                     maxLines: 10,
+                    height: 1.8,
                   ),
                 ),
               ),

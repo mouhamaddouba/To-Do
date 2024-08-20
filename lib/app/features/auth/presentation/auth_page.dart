@@ -22,37 +22,41 @@ class AuthPage extends StatelessWidget {
       child: Builder(builder: (context) {
         return Scaffold(
           backgroundColor: AppColors.backgroundSplash,
-          body: Column(
-            children: [
-              /// Header
-              SizedBox(
-                width: double.infinity,
-                height: size.height * 0.4,
-                child: const AppImageWidget(
-                  path: AppAssets.logInToDo,
+          body: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Column(
+              children: [
+                /// Header
+                SizedBox(
+                  width: double.infinity,
+                  height: size.height * AppDimensions.height0_4,
+                  child: const AppImageWidget(
+                    path: AppAssets.logInToDo,
+                  ),
                 ),
-              ),
 
-              /// Form
-              Expanded(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.white01,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(
-                        AppDimensions.radius25,
+                /// Form
+                Expanded(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: AppColors.white01,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(
+                          AppDimensions.radius25,
+                        ),
                       ),
                     ),
+                    padding: const EdgeInsets.all(
+                      AppDimensions.paddingOrMargin16,
+                    ),
+                    child: const SingleChildScrollView(
+                      child: AuthFormView(),
+                    ),
                   ),
-                  padding: const EdgeInsets.all(
-                    AppDimensions.paddingOrMargin16,
-                  ),
-                  child: const SingleChildScrollView(
-                    child: AuthFormView(),
-                  ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         );
       }),

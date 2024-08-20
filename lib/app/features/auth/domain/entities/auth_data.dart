@@ -1,4 +1,4 @@
-class UserData {
+class AuthData {
   final int id;
   final String username;
   final String email;
@@ -9,7 +9,7 @@ class UserData {
   final String token;
   final String refreshToken;
 
-  UserData({
+  AuthData({
     required this.id,
     required this.firstName,
     required this.lastName,
@@ -21,10 +21,10 @@ class UserData {
     required this.username,
   });
 
-  factory UserData.fromJson(
+  factory AuthData.fromJson(
     Map<String, dynamic> encodedData,
   ) =>
-      UserData(
+      AuthData(
         id: encodedData['id'],
         username: encodedData['username'],
         refreshToken: encodedData['refreshToken'],

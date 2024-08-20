@@ -1,6 +1,5 @@
 part of 'auth_bloc.dart';
 
-@immutable
 abstract class AuthState {}
 
 class AuthInitial extends AuthState {}
@@ -13,5 +12,8 @@ class AuthLoaded extends AuthState {
 
 class AuthLoadError extends AuthState {
   final Failure failure;
-  AuthLoadError({required this.failure});
+
+  AuthLoadError({
+    required this.failure,
+  });
 }

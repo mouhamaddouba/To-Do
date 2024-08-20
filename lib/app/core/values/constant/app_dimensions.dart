@@ -119,6 +119,7 @@ abstract class AppDimensions {
   ///endregion width
 
   ///region height
+  static const double height0_4 = 0.4;
   static const double height_18 = 1.8;
   static const double height01 = 1.0;
   static const double height02 = 2.0;

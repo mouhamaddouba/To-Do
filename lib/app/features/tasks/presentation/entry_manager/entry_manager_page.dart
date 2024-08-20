@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
-import 'package:to_do/app/core/values/constant/app_constants.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
+import 'package:to_do/app/core/values/constant/app_settings.dart';
 import 'package:to_do/app/features/tasks/presentation/entry_manager/views/entry_manager_calender_view.dart';
 import 'package:to_do/app/features/tasks/presentation/entry_manager/views/entry_manager_field_view.dart';
 import 'package:to_do/app/global_widgets/app_button_widget.dart';
@@ -15,7 +15,7 @@ class EntryManagerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: AppConstants.heroFloatingButton,
+      tag: AppSettings.heroFloatingButton,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => FocusScope.of(context).unfocus(),

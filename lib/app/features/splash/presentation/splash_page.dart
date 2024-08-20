@@ -77,7 +77,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
     Timer(
         const Duration(
-          milliseconds: AppConstants.duration1800,
+          milliseconds: AppConstants.duration1500,
         ), () {
       setState(() {
         scaleController.forward();

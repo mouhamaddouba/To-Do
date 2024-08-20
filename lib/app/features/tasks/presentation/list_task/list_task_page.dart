@@ -19,12 +19,15 @@ class ListTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TasksBloc()..add(FetchTaskEvent()),
+      create: (context) => TasksBloc()
+        ..add(
+          FetchTaskEvent(),
+        ),
       child: Builder(builder: (context) {
         return Scaffold(
           /// AppBar
-          appBar: const ListTaskAppbarView(),
           backgroundColor: AppColors.white01,
+          appBar: const ListTaskAppbarView(),
 
           /// Body
           body: GestureDetector(
@@ -52,7 +55,7 @@ class ListTaskPage extends StatelessWidget {
                     if (state.tasks.todos.isEmpty) {
                       return Center(
                         child: AppNoDataFoundWidget(
-                          title: AppStrings.alertSuccess.tr(),
+                          title: AppStrings.noTaskYet.tr(),
                         ),
                       );
                     } else {
@@ -64,7 +67,7 @@ class ListTaskPage extends StatelessWidget {
                   }
                   return Center(
                     child: AppNoDataFoundWidget(
-                      title: AppStrings.alertSuccess.tr(),
+                      title: AppStrings.noTaskYet.tr(),
                     ),
                   );
                 },

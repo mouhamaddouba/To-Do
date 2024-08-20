@@ -5,6 +5,7 @@ import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/core/values/constant/app_assets.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
+import 'package:to_do/app/core/values/constant/app_settings.dart';
 import 'package:to_do/app/features/tasks/presentation/list_task/views/widgets/item_popup_menu_widget.dart';
 import 'package:to_do/app/global_widgets/app_icon_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
@@ -24,7 +25,7 @@ class ListTaskAppbarView extends StatelessWidget
 
       /// Title
       title: AppTextWidget(
-        AppStrings.appName.tr(),
+        '${AppStrings.hello.tr()}  ${AppSettings.user.username}',
         fontSize: AppDimensions.fontSize10,
         fontWeight: FontWeight.w500,
       ),
