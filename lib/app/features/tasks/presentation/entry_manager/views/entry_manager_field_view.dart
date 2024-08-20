@@ -8,12 +8,11 @@ import 'package:to_do/app/global_widgets/app_text_field_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
 
 class EntryManagerFieldView extends StatelessWidget {
-  const EntryManagerFieldView({super.key});
+  final TextEditingController controller;
+  const EntryManagerFieldView({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController descriptionController = TextEditingController();
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: AppDimensions.paddingOrMargin16,
@@ -35,7 +34,7 @@ class EntryManagerFieldView extends StatelessWidget {
 
           /// Description text field
           AppTextFieldWidget(
-            textController: descriptionController,
+            textController: controller,
             backgroundColor: AppColors.onPrimary,
             verticalPadding: AppDimensions.paddingOrMargin14,
             horizontalPadding: AppDimensions.paddingOrMargin16,

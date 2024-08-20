@@ -1,18 +1,34 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
 import 'package:to_do/app/core/values/constant/app_assets.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
 import 'package:to_do/app/features/tasks/domain/entities/single_tasks_data.dart';
+import 'package:to_do/app/features/tasks/presentation/blocs/tasks_bloc.dart';
 import 'package:to_do/app/features/tasks/presentation/list_task/views/widgets/item_popup_menu_widget.dart';
 import 'package:to_do/app/global_widgets/app_icon_widget.dart';
 import 'package:to_do/app/global_widgets/app_text_widget.dart';
 
-class TaskItemWidget extends StatelessWidget {
+class TaskItemWidget extends StatefulWidget {
   final SingleTaskData task;
+
   const TaskItemWidget({super.key, required this.task});
+
+  @override
+  State<TaskItemWidget> createState() => _TaskItemWidgetState();
+}
+
+class _TaskItemWidgetState extends State<TaskItemWidget> {
+  late bool _completed;
+
+  @override
+  void initState() {
+    _completed = widget.task.completed;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +52,19 @@ class TaskItemWidget extends StatelessWidget {
               children: [
                 /// Check Box
                 Checkbox(
-                  value: task.completed,
+                  value: _completed,
                   activeColor: AppColors.primary,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    BlocProvider.of<TasksBloc>(context).add(
+                      UpdateTaskEvent(
+                        completed: !_completed,
+                        todoId: widget.task.id,
+                      ),
+                    );
+                    setState(() {
+                      _completed = !_completed;
+                    });
+                  },
                 ),
 
                 Expanded(
@@ -55,7 +81,7 @@ class TaskItemWidget extends StatelessWidget {
                                 top: AppDimensions.paddingOrMargin4,
                               ),
                               child: AppTextWidget(
-                                task.todo,
+                                widget.task.todo,
                                 fontSize: AppDimensions.fontSize07,
                               ),
                             ),
@@ -72,16 +98,22 @@ class TaskItemWidget extends StatelessWidget {
                               iconPath: AppAssets.verticalMenu,
                               color: AppColors.black00,
                             ),
-                            onSelected: (value) {},
+                            onSelected: (value) {
+                              if (value == AppConstants.index01) {
+                                BlocProvider.of<TasksBloc>(context).add(
+                                  DeleteTaskEvent(todoId: widget.task.id),
+                                );
+                              }
+                            },
                             itemBuilder: (BuildContext context) {
                               return const [
-                                PopupMenuItem<int>(
+                                /*       PopupMenuItem<int>(
                                   value: AppConstants.index00,
                                   child: ItemPopupMenuWidget(
                                     iconItem: AppAssets.edit,
                                     titleItem: AppStrings.editTask,
                                   ),
-                                ),
+                                ),*/
                                 PopupMenuItem<int>(
                                   value: AppConstants.index01,
                                   child: ItemPopupMenuWidget(

@@ -51,12 +51,14 @@ class TasksRepositoryImpl implements TasksRepository {
   Future<Either<Failure, SingleTaskData>> addTask({
     required String todo,
     required bool completed,
+    required int userId,
   }) async {
     try {
       final result = await _remoteDatasource.addTask(
         newTask: MangeTaskRequestDto(
           completed: completed,
           todo: todo,
+          userId: userId,
         ),
       );
 

@@ -153,12 +153,10 @@ class ApiProvider {
     _dio.options.responseType = ResponseType.json;
 
     try {
-      Response response = await _dio.post(
+      Response response = await _dio.delete(
         url,
         data: data,
         queryParameters: queryParameters,
-        onSendProgress: onSendProgress,
-        onReceiveProgress: onReceiveProgress,
       );
 
       if (response.statusCode == StatusCodeEnum.success.code) {

@@ -16,6 +16,7 @@ class AddTasksUseCase extends UseCase<SingleTaskData, AddTaskParams> {
     return _repository.addTask(
       todo: params.todo,
       completed: params.completed,
+      userId: params.userId
     );
   }
 }
@@ -23,9 +24,11 @@ class AddTasksUseCase extends UseCase<SingleTaskData, AddTaskParams> {
 class AddTaskParams {
   final String todo;
   final bool completed;
+  final int userId;
 
   AddTaskParams({
     required this.todo,
     required this.completed,
+    required this.userId,
   });
 }

@@ -11,74 +11,73 @@ import 'package:to_do/app/features/tasks/presentation/list_task/views/list_tasks
 import 'package:to_do/app/global_widgets/app_loading_widget.dart';
 import 'package:to_do/app/global_widgets/app_no_data_found_widget.dart';
 
-class ListTaskPage extends StatelessWidget {
+class ListTaskPage extends StatefulWidget {
   const ListTaskPage({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TasksBloc()
-        ..add(
-          FetchTaskEvent(),
-        ),
-      child: Builder(builder: (context) {
-        return Scaffold(
-          /// AppBar
-          backgroundColor: AppColors.white01,
-          appBar: const ListTaskAppbarView(),
+  State<ListTaskPage> createState() => _ListTaskPageState();
+}
 
-          /// Body
-          body: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () => FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: const EdgeInsets.all(
-                AppDimensions.paddingOrMargin16,
-              ),
-              child: BlocConsumer<TasksBloc, TasksState>(
-                /// For error in fetch data
-                listener: (context, state) {
-                  if (state is TasksLoadError) {}
-                },
-                builder: (context, state) {
-                  if (state is TasksLoading) {
-                    /// For loading data
-                    return const Center(
-                      child: AppLoadingWidget(),
+class _ListTaskPageState extends State<ListTaskPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Builder(builder: (context) {
+      return Scaffold(
+        /// AppBar
+        backgroundColor: AppColors.white01,
+        appBar: const ListTaskAppbarView(),
+
+        /// Body
+        body: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Padding(
+            padding: const EdgeInsets.all(
+              AppDimensions.paddingOrMargin16,
+            ),
+            child: BlocConsumer<TasksBloc, TasksState>(
+              /// For error in fetch data
+              listener: (context, state) {
+                if (state is TasksLoadError) {}
+              },
+              builder: (context, state) {
+                if (state is TasksLoading) {
+                  /// For loading data
+                  return const Center(
+                    child: AppLoadingWidget(),
+                  );
+                }
+
+                /// for no data found
+                if (state is TasksLoaded) {
+                  if (state.tasks.todos.isEmpty) {
+                    return Center(
+                      child: AppNoDataFoundWidget(
+                        title: AppStrings.noTaskYet.tr(),
+                      ),
+                    );
+                  } else {
+                    /// fetch data success
+                    return ListTasksItemsView(
+                      tasksList: state.tasks.todos,
                     );
                   }
-
-                  /// for no data found
-                  if (state is TasksLoaded) {
-                    if (state.tasks.todos.isEmpty) {
-                      return Center(
-                        child: AppNoDataFoundWidget(
-                          title: AppStrings.noTaskYet.tr(),
-                        ),
-                      );
-                    } else {
-                      /// fetch data success
-                      return ListTasksItemsView(
-                        tasksList: state.tasks.todos,
-                      );
-                    }
-                  }
-                  return Center(
-                    child: AppNoDataFoundWidget(
-                      title: AppStrings.noTaskYet.tr(),
-                    ),
-                  );
-                },
-              ),
+                }
+                return Center(
+                  child: AppNoDataFoundWidget(
+                    title: AppStrings.noTaskYet.tr(),
+                  ),
+                );
+              },
             ),
           ),
+        ),
 
-          /// Floating Button
-          floatingActionButton: const ListTaskFloatButtonView(),
-        );
-      }),
-    );
+        /// Floating Button
+        floatingActionButton: const ListTaskFloatButtonView(),
+      );
+    });
   }
 }

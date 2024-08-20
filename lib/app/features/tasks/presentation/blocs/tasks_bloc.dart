@@ -45,6 +45,7 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
         AddTaskParams(
           completed: event.completed,
           todo: event.todo,
+          userId: event.userId,
         ),
       );
       await result.fold(
@@ -58,8 +59,6 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
     });
 
     on<UpdateTaskEvent>((event, emit) async {
-      emit(TasksLoading());
-
       final result = await updateTasUseCase.call(
         UpdateTaskParams(
           completed: event.completed,
@@ -75,8 +74,6 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
     });
 
     on<DeleteTaskEvent>((event, emit) async {
-      emit(TasksLoading());
-
       final result = await deleteTasUseCase.call(
         DeleteTaskParams(
           todoId: event.todoId,
@@ -86,7 +83,9 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
         (Failure failure) {
           emit(TasksLoadError(failure: failure));
         },
-        (bool data) async {},
+        (bool data) async {
+          add(FetchTaskEvent());
+        },
       );
     });
   }

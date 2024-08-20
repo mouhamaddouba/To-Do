@@ -49,9 +49,11 @@ class DeleteTaskEvent extends TasksEvent {
 class AddNewTaskEvent extends TasksEvent {
   final String todo;
   final bool completed;
+  final int userId;
 
   AddNewTaskEvent({
     required this.todo,
+    required this.userId,
     required this.completed,
   });
 }
