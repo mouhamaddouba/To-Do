@@ -48,12 +48,16 @@ class TaskItemWidget extends StatelessWidget {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          /// Title
+                          /// Description
                           Expanded(
-                            child: AppTextWidget(
-                              AppStrings.alertSuccess.tr(),
-                              fontSize: AppDimensions.fontSize08,
-                              fontWeight: FontWeight.w600,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                top: AppDimensions.paddingOrMargin4,
+                              ),
+                              child: AppTextWidget(
+                                task.todo,
+                                fontSize: AppDimensions.fontSize07,
+                              ),
                             ),
                           ),
 
@@ -91,12 +95,6 @@ class TaskItemWidget extends StatelessWidget {
                             },
                           ),
                         ],
-                      ),
-
-                      /// Description
-                      AppTextWidget(
-                        task.todo,
-                        fontSize: AppDimensions.fontSize07,
                       ),
 
                       /// Space

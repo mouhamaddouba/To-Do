@@ -49,6 +49,7 @@ abstract class AppStrings {
   static const String badRequestInAuth = 'badRequestInAuth';
 
   /// Region List Task
+  static const String hello = 'hello';
   static const String calenderTask = 'calenderTask';
   static const String completeTask = 'completeTask';
   static const String pendingTask = 'pendingTask';

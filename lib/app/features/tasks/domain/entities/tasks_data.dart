@@ -18,7 +18,9 @@ class TasksData {
   ) =>
       TasksData(
         todos: (encodedData['todos'] as List<dynamic>?)
-                ?.map((e) => SingleTaskData.fromJson(e as Map<String, dynamic>))
+                ?.map(
+                  (e) => SingleTaskData.fromJson(e as Map<String, dynamic>),
+                )
                 .toList() ??
             [],
         total: encodedData['total'],

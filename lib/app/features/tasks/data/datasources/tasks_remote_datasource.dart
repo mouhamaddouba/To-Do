@@ -4,9 +4,9 @@ import 'package:to_do/app/core/network/api_provider.dart';
 import 'package:to_do/app/core/network/app_urls.dart';
 
 import 'package:to_do/app/core/network_response/network_response.dart';
-import 'package:to_do/app/features/tasks/data/model/remote/request/mange_task_request_dto.dart';
-import 'package:to_do/app/features/tasks/data/model/remote/request/tasks_request_dto.dart';
-import 'package:to_do/app/features/tasks/data/model/remote/response/tasks_response_dto.dart';
+import 'package:to_do/app/features/tasks/data/models/remote/request/mange_task_request_dto.dart';
+import 'package:to_do/app/features/tasks/data/models/remote/request/tasks_request_dto.dart';
+import 'package:to_do/app/features/tasks/data/models/remote/response/tasks_response_dto.dart';
 import 'package:to_do/app/features/tasks/domain/entities/single_tasks_data.dart';
 
 abstract class TasksRemoteDatasource {
