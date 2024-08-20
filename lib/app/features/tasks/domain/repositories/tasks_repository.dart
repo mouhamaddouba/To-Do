@@ -15,7 +15,8 @@ abstract class TasksRepository {
     required int id,
   });
   Future<Either<Failure, SingleTaskData>> addTask({
-    required MangeTaskRequestDto todo,
+    required String todo,
+    required bool completed,
   });
   Future<Either<Failure, bool>> deleteTask({
     required int id,

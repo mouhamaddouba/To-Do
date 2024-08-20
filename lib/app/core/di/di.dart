@@ -5,7 +5,10 @@ import 'package:to_do/app/features/auth/domain/use_cases/login_use_case.dart';
 import 'package:to_do/app/features/tasks/data/datasources/tasks_remote_datasource.dart';
 import 'package:to_do/app/features/tasks/data/repositories/tasks_repository_impl.dart';
 import 'package:to_do/app/features/tasks/domain/repositories/tasks_repository.dart';
-import 'package:to_do/app/features/tasks/domain/use_cases/tasks_use_case.dart';
+import 'package:to_do/app/features/tasks/domain/use_cases/add_task_use_case.dart';
+import 'package:to_do/app/features/tasks/domain/use_cases/delete_task_use_case.dart';
+import 'package:to_do/app/features/tasks/domain/use_cases/fetch_tasks_use_case.dart';
+import 'package:to_do/app/features/tasks/domain/use_cases/update_task_use_case.dart';
 
 import '../../features/auth/data/repositories/auth_repository_impl.dart';
 
@@ -32,7 +35,16 @@ Future<void> initAppModule() async {
   //Tasks Repository instance
   instance.registerLazySingleton<TasksRepository>(
       () => TasksRepositoryImpl(remoteDatasource: instance()));
-  // Tasks UseCase instance
-  instance.registerLazySingleton<TasksUseCase>(
-      () => TasksUseCase(repository: instance()));
+  // Tasks Fetch Tasks UseCase instance
+  instance.registerLazySingleton<FetchTasksUseCase>(
+      () => FetchTasksUseCase(repository: instance()));
+  // Tasks update Tasks UseCase instance
+  instance.registerLazySingleton<UpdateTaskUseCase>(
+          () => UpdateTaskUseCase(repository: instance()));
+  // Tasks add Tasks UseCase instance
+  instance.registerLazySingleton<AddTasksUseCase>(
+          () => AddTasksUseCase(repository: instance()));
+  // Tasks delete Tasks UseCase instance
+  instance.registerLazySingleton<DeleteTaskUseCase>(
+          () => DeleteTaskUseCase(repository: instance()));
 }

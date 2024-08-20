@@ -31,14 +31,27 @@ class FetchTaskEvent extends TasksEvent {
   });
 }
 
-class EditTaskEvent extends TasksEvent {
-  EditTaskEvent();
+class UpdateTaskEvent extends TasksEvent {
+  final int todoId;
+  final bool completed;
+
+  UpdateTaskEvent({required this.todoId, required this.completed});
 }
 
 class DeleteTaskEvent extends TasksEvent {
-  DeleteTaskEvent();
+  final int todoId;
+
+  DeleteTaskEvent({
+    required this.todoId,
+  });
 }
 
 class AddNewTaskEvent extends TasksEvent {
-  AddNewTaskEvent();
+  final String todo;
+  final bool completed;
+
+  AddNewTaskEvent({
+    required this.todo,
+    required this.completed,
+  });
 }

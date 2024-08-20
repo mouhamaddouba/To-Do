@@ -1,6 +1,6 @@
 class MangeTaskRequestDto {
   final String todo;
-  final int completed;
+  final bool completed;
 
   MangeTaskRequestDto({
     required this.todo,

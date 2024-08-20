@@ -49,11 +49,15 @@ class TasksRepositoryImpl implements TasksRepository {
 
   @override
   Future<Either<Failure, SingleTaskData>> addTask({
-    required MangeTaskRequestDto todo,
+    required String todo,
+    required bool completed,
   }) async {
     try {
       final result = await _remoteDatasource.addTask(
-        newTask: todo,
+        newTask: MangeTaskRequestDto(
+          completed: completed,
+          todo: todo,
+        ),
       );
 
       return Right(
