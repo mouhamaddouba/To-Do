@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
+import 'package:to_do/app/core/values/constant/app_settings.dart';
 import 'package:to_do/app/global_widgets/app_icon_widget.dart';
 import 'package:to_do/app/routes/app_routes.dart';
 
@@ -16,7 +17,7 @@ class ListTaskFloatButtonView extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
 
     return Hero(
-      tag: AppConstants.heroFloatingButton,
+      tag: AppSettings.heroFloatingButton,
       child: SizedBox(
         height: w / AppDimensions.height3_7,
         width: w / AppDimensions.width06,

@@ -48,16 +48,9 @@ class NetworkResponse<T> {
       return null;
     }
 
-/*    if (json['data'] == null) {
-      print(json);
-
-      return null;
-    }*/
     return fromJsonT(
       json,
     );
-
-    return null;
   }
 
   static List<T>? _getDataList<T>(

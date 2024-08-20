@@ -12,27 +12,43 @@ import '../../features/auth/data/repositories/auth_repository_impl.dart';
 final instance = GetIt.instance;
 
 Future<void> initAppModule() async {
-  // Auth
+  /// Auth
   // Login RemoteDataSource instance
   instance.registerLazySingleton<AuthRemoteDatasource>(
-      () => AuthRemoteDatasourceImpl());
+    () => AuthRemoteDatasourceImpl(),
+  );
 
   //Login Repository instance
   instance.registerLazySingleton<AuthRepository>(
-      () => AuthRepositoryImpl(remoteDatasource: instance()));
+    () => AuthRepositoryImpl(
+      remoteDatasource: instance(),
+    ),
+  );
+
   // Login UseCase instance
   instance.registerLazySingleton<LoginUseCase>(
-      () => LoginUseCase(repository: instance()));
+    () => LoginUseCase(
+      repository: instance(),
+    ),
+  );
 
-  // Tasks
+  /// Tasks
   // Tasks RemoteDataSource instance
   instance.registerLazySingleton<TasksRemoteDatasource>(
-      () => TasksRemoteDatasourceImpl());
+    () => TasksRemoteDatasourceImpl(),
+  );
 
   //Tasks Repository instance
   instance.registerLazySingleton<TasksRepository>(
-      () => TasksRepositoryImpl(remoteDatasource: instance()));
+    () => TasksRepositoryImpl(
+      remoteDatasource: instance(),
+    ),
+  );
+
   // Tasks UseCase instance
   instance.registerLazySingleton<TasksUseCase>(
-      () => TasksUseCase(repository: instance()));
+    () => TasksUseCase(
+      repository: instance(),
+    ),
+  );
 }

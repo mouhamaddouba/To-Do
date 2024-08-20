@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do/app/core/themes/app_colors.dart';
 import 'package:to_do/app/core/translations/app_strings.dart';
-import 'package:to_do/app/core/utils/app_message.dart';
+import 'package:to_do/app/core/utils/app_alert_utils.dart';
+import 'package:to_do/app/core/utils/app_snack_bar_utils.dart';
 import 'package:to_do/app/core/values/constant/app_dimensions.dart';
+import 'package:to_do/app/core/values/enums/dialog_type_enum.dart';
 import 'package:to_do/app/features/auth/presentation/blocs/auth_bloc.dart';
 import 'package:to_do/app/features/auth/presentation/views/auth_field_view.dart';
 import 'package:to_do/app/global_widgets/app_button_widget.dart';
@@ -22,6 +24,7 @@ class AuthFormView extends StatelessWidget {
     final loginFormKey = GlobalKey<FormState>();
     final TextEditingController userNameController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+
     return Form(
       key: loginFormKey,
       child: Column(
@@ -66,15 +69,28 @@ class AuthFormView extends StatelessWidget {
                 );
               }
               if (state is AuthLoadError) {
-                showMessage(
-                  context,
-                  message: state.failure.message,
-                  isError: true,
+                AppAlertUtils.showDialog(
+                  context: context,
+                  isNewBody: true,
+                  onCancel: () => Navigator.pop(context),
+                  dialogTypeEnum: DialogTypeEnum.error,
+                  title: state.failure.message,
+                  message: AppStrings.badRequestInAuth.tr(),
+                  onConfirm: () {
+                    Navigator.pop(context);
+                  },
                 );
+
+                FocusScope.of(context).unfocus();
+
+                userNameController.clear();
+                passwordController.clear();
               }
             },
             builder: (context, state) {
               if (state is AuthLoading) {
+                FocusScope.of(context).unfocus();
+
                 return const Center(
                   child: AppLoadingWidget(),
                 );

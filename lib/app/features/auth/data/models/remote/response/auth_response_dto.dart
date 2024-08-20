@@ -1,7 +1,7 @@
-import 'package:to_do/app/features/auth/domain/entities/login_data.dart';
+import 'package:to_do/app/features/auth/domain/entities/auth_data.dart';
 
-class LoginResponseDto extends UserData {
-  LoginResponseDto({
+class AuthResponseDto extends AuthData {
+  AuthResponseDto({
     required super.id,
     required super.username,
     required super.email,
@@ -13,10 +13,10 @@ class LoginResponseDto extends UserData {
     required super.refreshToken,
   });
 
-  factory LoginResponseDto.fromJson(
+  factory AuthResponseDto.fromJson(
     Map<String, dynamic> json,
   ) =>
-      LoginResponseDto(
+      AuthResponseDto(
         id: json['id'],
         username: json['username'],
         refreshToken: json['refreshToken'],

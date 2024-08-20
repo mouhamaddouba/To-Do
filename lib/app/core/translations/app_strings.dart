@@ -1,5 +1,5 @@
 abstract class AppStrings {
-  //region Network validation messages
+  ///region Network validation messages
   static const String success = 'success';
   static const String badRequest = 'badRequest';
   static const String unAuthorized = 'unAuthorized';
@@ -13,7 +13,7 @@ abstract class AppStrings {
 
   ///endregion Network validation messages
 
-  /// Region Error App
+  ///region Error App
   static const String failure = 'failure';
   static const String localFailure = 'localFailure';
   static const String serverFailure = 'serverFailure';
@@ -43,7 +43,10 @@ abstract class AppStrings {
   static const String userName = 'userName';
   static const String password = 'password';
   static const String login = 'login';
-  static const String required = 'required';
+  static const String userNameRequired = 'userNameRequired';
+  static const String passwordRequired = 'passwordRequired';
+  static const String passwordShorts = 'passwordShorts';
+  static const String badRequestInAuth = 'badRequestInAuth';
 
   /// Region List Task
   static const String calenderTask = 'calenderTask';

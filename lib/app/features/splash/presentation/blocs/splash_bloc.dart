@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:bloc/bloc.dart';
-import 'package:to_do/app/core/app_settings/app_settings.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do/app/core/values/constant/app_settings.dart';
 import 'package:to_do/app/core/storage/app_shared_prefrence.dart';
 import 'package:to_do/app/core/storage/app_storage_keys.dart';
 import 'package:to_do/app/core/values/constant/app_constants.dart';
-import 'package:to_do/app/features/auth/domain/entities/login_data.dart';
+import 'package:to_do/app/features/auth/domain/entities/auth_data.dart';
 
 part 'splash_event.dart';
 
@@ -17,7 +17,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       /// Delay before movement
       await Future.delayed(
         const Duration(
-          milliseconds: AppConstants.duration2100,
+          milliseconds: AppConstants.duration1700,
         ),
       );
 
@@ -31,7 +31,9 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
           AppStorageKeys.user,
         );
         if (userModelString != null && userModelString.isNotEmpty) {
-          AppSettings.user = UserData.fromJson(json.decode(userModelString));
+          AppSettings.user = AuthData.fromJson(
+            json.decode(userModelString),
+          );
         }
       }
       emit(

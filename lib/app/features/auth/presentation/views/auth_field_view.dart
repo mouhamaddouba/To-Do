@@ -31,35 +31,28 @@ class _AuthFieldViewState extends State<AuthFieldView> {
       children: [
         /// User Name
         AppTextFieldWidget(
+          textColor: AppColors.gray03,
+          height: AppDimensions.height80,
+          hintText: AppStrings.userName.tr(),
+          fontSize: AppDimensions.fontSize10,
+          backgroundColor: AppColors.background,
           textController: widget.userNameController,
           verticalPadding: AppDimensions.paddingOrMargin14,
-          backgroundColor: AppColors.background,
-          hintText: AppStrings.userName.tr(),
-          textColor: AppColors.gray03,
-          fontSize: AppDimensions.fontSize10,
           validator: (text) {
             if (text == null || text.isEmpty) {
-              return AppStrings.required.tr();
+              return AppStrings.userNameRequired.tr();
             }
             return null;
           },
         ),
 
-        /// Space
-        const SizedBox(
-          height: AppDimensions.paddingOrMargin16,
-        ),
-
         /// Password
         AppTextFieldWidget(
+          height: AppDimensions.height80,
           textController: widget.passwordController,
-          backgroundColor: Theme.of(context).brightness == Brightness.light
-              ? AppColors.onPrimary
-              : AppColors.darkOnPrimary,
+          backgroundColor: AppColors.onPrimary,
           verticalPadding: AppDimensions.paddingOrMargin14,
-          textColor: Theme.of(context).brightness == Brightness.light
-              ? AppColors.black01
-              : AppColors.whiteBlue,
+          textColor: AppColors.black01,
           hintText: AppStrings.password.tr(),
           textInputAction: TextInputAction.done,
           horizontalPadding: AppDimensions.paddingOrMargin16,
@@ -68,10 +61,10 @@ class _AuthFieldViewState extends State<AuthFieldView> {
           obscureText: !showPassword,
           validator: (text) {
             if (text == null || text.isEmpty) {
-              return AppStrings.required.tr();
+              return AppStrings.passwordRequired.tr();
             }
             if (text.length < 8) {
-              return AppStrings.required.tr();
+              return AppStrings.passwordShorts.tr();
             }
             return null;
           },

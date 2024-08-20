@@ -1,4 +1,4 @@
-import 'package:to_do/app/core/app_settings/app_settings.dart';
+import 'package:to_do/app/core/values/constant/app_settings.dart';
 import 'package:to_do/app/core/error/exceptions.dart';
 import 'package:to_do/app/core/network/api_provider.dart';
 import 'package:to_do/app/core/network/app_urls.dart';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 abstract class AppConstants {
-  /// Duration
-
   /// API Constant
   static const int receiveUrlTimeout = 60;
   static const int connectUrlTimeout = 60;
@@ -39,9 +37,11 @@ abstract class AppConstants {
   static const int duration800 = 800;
   static const int duration1200 = 1200;
   static const int duration1500 = 1500;
+  static const int duration1700 = 1700;
   static const int duration1800 = 1800;
   static const int duration2100 = 2100;
   static const int duration2500 = 2500;
+  static const int duration3000 = 3000;
 
   /// Constant offsets
   static const Offset offset10 = Offset(10, 10);
@@ -51,16 +51,6 @@ abstract class AppConstants {
   /// Constant transform
   static const double transform12 = 12;
   static const double transform18 = 18;
-
-  /// Constant cross
-  static const double cross3_8 = 3.8;
-  static const int cross04 = 4;
-  static const double cross7_8 = 7.8;
-  static const int cross12 = 12;
-  static const int cross14 = 14;
-  static const int cross16 = 16;
-  static const int cross20 = 20;
-  static const int cross40 = 40;
 
   /// Constant Main Axis
   static const double mainAxis4 = 4;
@@ -84,7 +74,4 @@ abstract class AppConstants {
   static const double tween10 = 10;
   static const double tween12 = 12;
   static const double tween30 = 30;
-
-  /// Hero Tags
-  static const String heroFloatingButton = '000';
 }
